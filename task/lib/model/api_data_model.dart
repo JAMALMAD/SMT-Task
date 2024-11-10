@@ -15,14 +15,13 @@ class DataModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['userId'] = this.userId;
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['body'] = this.body;
+    data['userId'] = userId;
+    data['id'] = id;
+    data['title'] = title;
+    data['body'] = body;
     return data;
   }
 
-  // Override toString to print data details
   @override
   String toString() {
     return 'DataModel{userId: $userId, id: $id, title: $title, body: $body}';

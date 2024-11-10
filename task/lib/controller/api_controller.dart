@@ -1,11 +1,9 @@
 
-
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:task/model/home_model.dart';
+import 'package:task/model/api_data_model.dart';
 import 'package:task/service/api_service.dart';
 
 class HomeController extends GetxController {
@@ -13,7 +11,7 @@ class HomeController extends GetxController {
   RxInt isButtonIndex = 0.obs;
 
   Future<void> getData() async {
-    var response = await http.get(Uri.parse(ApiService.homeApi));
+    var response = await http.get(Uri.parse(ApiService.taskOneApi));
 
     try {
       if (response.statusCode == 200) {
@@ -23,7 +21,7 @@ class HomeController extends GetxController {
           fetchedData.add(DataModel.fromJson(item));
         }
         dataList.value = fetchedData; 
-        print("================================== $dataList");
+        debugPrint("================================== $dataList");
       } else {
         debugPrint("Status code is ====${response.statusCode.toString()}");
       }
